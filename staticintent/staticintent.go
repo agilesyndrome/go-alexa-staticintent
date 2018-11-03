@@ -5,6 +5,11 @@ import (
   "github.com/agilesyndrome/go-alexa-i18n/alexai18n"
 )
 
+func Simple(request alexa.Request, intent_name string) alexa.Response {
+  request.Body.Intent.Name = intent_name
+  return Handler(request)
+}
+
 func Handler(request alexa.Request) alexa.Response {
 
         intent_name := request.Body.Intent.Name
