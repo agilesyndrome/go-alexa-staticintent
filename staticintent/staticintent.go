@@ -1,4 +1,4 @@
-package StaticIntent
+package staticintent
 
 import (
   "github.com/arienmalec/alexa-go"
@@ -10,7 +10,7 @@ func Simple(request alexa.Request, intent_name string) alexa.Response {
   return Handler(request)
 }
 
-func Handler(request alexa.Request) alexa.Response {
+func Handler(request alexa.Request) (alexa.Response) {
 
         intent_name := request.Body.Intent.Name
 	if ( intent_name == "" ) {
