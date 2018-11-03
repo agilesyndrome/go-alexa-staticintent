@@ -6,12 +6,13 @@ import (
   "strings"
 )
 
-func Simple(request alexa.Request, intent_name string) alexa.Response {
+func Simple(request alexa.Request, intent_name string) (alexa.Response, error) {
   request.Body.Intent.Name = intent_name
-  return Handler(request)
+  resp, err := Handler(request)
+  return resp, err
 }
 
-func Handler(request alexa.Request) (alexa.Response) {
+func Handler(request alexa.Request) (alexa.Response, error) {
 
         intent_name := request.Body.Intent.Name
 	if ( intent_name == "" ) {
@@ -28,5 +29,5 @@ func Handler(request alexa.Request) (alexa.Response) {
 	  title = alexai18n.WorldString(request, "skill-name")
 	}
 
-        return alexa.NewSimpleResponse(title, text)
+        return alexa.NewSimpleResponse(title, text), nil
 }
