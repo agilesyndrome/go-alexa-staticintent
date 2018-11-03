@@ -1,4 +1,4 @@
-package staticintent
+package StaticIntent
 
 import (
   "github.com/arienmalec/alexa-go"
