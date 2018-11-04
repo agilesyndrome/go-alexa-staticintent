@@ -29,5 +29,9 @@ func Handler(request alexa.Request) (alexa.Response, error) {
 	  title = alexai18n.WorldString(request, "skill-name")
 	}
 
+	if (strings.HasSuffix(text, ".text") ) {
+	  text = alexai18n.WorldString(request, "i-dont-know")
+	}
+
         return alexa.NewSimpleResponse(title, text), nil
 }
