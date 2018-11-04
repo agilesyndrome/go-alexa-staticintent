@@ -30,7 +30,7 @@ func Handler(request alexa.Request) (alexa.Response, error) {
 	}
 
 	if (strings.HasSuffix(text, ".text") ) {
-	  text = alexai18n.WorldString(request, "i-dont-know")
+	  text = alexai18n.WorldString(request, "fallback.text")
 	}
 
         return alexa.NewSimpleResponse(title, text), nil
